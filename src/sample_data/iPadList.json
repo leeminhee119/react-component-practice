@@ -1,0 +1,22 @@
+{
+    "items": [
+        {
+            "name": "iPad Pro",
+            "price": "$1000",
+            "spec": {
+                "size": "11inch",
+                "memory": "512GB" 
+            },
+            "link": "https://www.apple.com/kr/ipad-pro/"
+        },
+        {
+            "name": "iPad Air",
+            "price": "$900",
+            "spec": {
+                "size": "13inch",
+                "memory": "256GB" 
+            },
+            "link": "https://www.apple.com/kr/ipad-air/"
+        }
+    ]
+}    

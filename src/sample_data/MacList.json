@@ -1,0 +1,54 @@
+{
+    "items" : [
+        {
+            "iMac": [
+                {
+                    "name": "iMac",
+                    "capacity": "512GB",
+                    "CPU": "8",
+                    "RAM": "16",
+                    "price": "$1500"
+                },
+                {
+                    "name": "iMac2",
+                    "capacity": "512GB",
+                    "CPU": "8",
+                    "RAM": "8",
+                    "price": "$1600"
+                }
+            ],
+            "MacBook Pro": [
+                {
+                    "name": "MacBook Pro",
+                    "capacity": "512GB",
+                    "CPU": "8",
+                    "RAM": "16",
+                    "price": "$1400"
+                },
+                {
+                    "name": "MacBook Pro2",
+                    "capacity": "256GB",
+                    "CPU": "8",
+                    "RAM": "8",
+                    "price": "$1300"
+                }
+            ],
+            "MacBook Air": [    
+                {
+                    "name": "MacBook Air",
+                    "capacity": "512GB",
+                    "CPU": "8",
+                    "RAM": "16",
+                    "price": "$1000"
+                },
+                {
+                    "name": "MacBook Air2",
+                    "capacity": "256GB",
+                    "CPU": "8",
+                    "RAM": "8",
+                    "price": "$1200"
+                }
+            ]
+        }
+    ]
+}

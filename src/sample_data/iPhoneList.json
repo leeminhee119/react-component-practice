@@ -1,0 +1,17 @@
+{
+    "items" : [
+        {
+            "name": "iPhone 14 Pro",
+            "price": "$1000",
+            "capacity": "256GB",
+            "link": "https://www.apple.com/kr/iphone-14-pro/"
+        },
+        {
+            "name": "iPhone 13s",
+            "price": "$900",
+            "capacity": "512GB",
+            "link": "https://www.apple.com/kr/shop/buy-iphone/iphone-13"
+        }
+           
+    ]   
+}
