@@ -27,6 +27,7 @@ function App() {
     <br/><br/>
     
     {/* 아이맥, 맥북 등 맥 리스트는 별도로 관리 */}
+    <h3>맥 상세정보</h3>
     <select onChange={handleChangeType}>
       {
         types.map((type:string, index:number) => {

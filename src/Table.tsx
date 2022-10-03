@@ -1,10 +1,7 @@
 import React from "react";
+import styled from 'styled-components'
 interface TableInterface {
     dataList: any
-    // keys: string[],
-    // values: any[], // 세부 항목이 있는 경우 string이 아닌 object일 수 있으므로 any[]
-    // subKeys: string[], // 세부 항목이 없다면 빈 배열, 있다면 string 배열
-    // subSection: number, // 세부 항목 없다면 -1, 있다면 인덱스값 (-1 아닌 값)
 }
 const Table = (props: TableInterface) => {
     const keys = Object.keys(props.dataList[0]) // ['name', 'price',...]
@@ -26,22 +23,22 @@ const Table = (props: TableInterface) => {
         }
       }
     }
-    const subKeys:string[]|null = [];
-    if (indexOfSubSection != -1) {
+    const subKeys:string[]|null = []; // 세부 항목의 키 값 저장
+    if (indexOfSubSection !== -1) {
       Object.keys(value_sample[indexOfSubSection]).forEach((key:string) => {
         subKeys.push(key)
       })
     }
     
     return (
-        <table>
+        <table style={{border: "1px solid black", borderCollapse: "collapse"}}>
             <thead>
                 {
                     indexOfSubSection === -1 // 세부항목이 없다면
                     ?<tr>
                         {keys.map((th:string, index:number) => {
                             return(
-                                <th key={index}>{th}</th>
+                                <TH key={index}>{th}</TH>
                             )
                         })}
                     </tr>
@@ -49,15 +46,15 @@ const Table = (props: TableInterface) => {
                         {keys.map((th:string, index:number) => {
                             return (
                                 index !== indexOfSubSection
-                                ? <th key={index} rowSpan={2}>{th}</th>
-                                : <th key={index} colSpan={subKeys.length}>{th}</th>
+                                ? <TH key={index} rowSpan={2}>{th}</TH>  // 세부 항목 없는 열
+                                : <TH key={index} colSpan={subKeys.length}>{th}</TH>  // 세부 항목 있는 열
                             )
                         })}
                     </tr>
                     <tr>
-                        {Object.keys(values[0][indexOfSubSection]).map((th:string, index:number) => {
+                        {subKeys.map((th:string, index:number) => {
                             return (
-                                <th key={index}>{th}</th>
+                                <TH key={index}>{th}</TH> // 세부 항목 키 값
                             )
                         })}
                     </tr></>
@@ -67,16 +64,16 @@ const Table = (props: TableInterface) => {
                 {
                     values.map((item:any, index:number) => {
                         return (
-                            <tr>
-                                {item.map((td:string|object, index:number) => {
+                            <tr key={index}>
+                                {item.map((td:string|object, index:number) => {  // 각 value (즉 하나의 제품) 에 대해
                                     return (
-                                        typeof td === "string"
-                                        ? index === indexOfATag
-                                        ? <a href={td}><td>{td}</td></a>
-                                        : <td>{td}</td>
-                                        : Object.values(td).map((subItem:string, index:number) => {
+                                        typeof td === "string"   // cf. 세부항목이 있는 경우는 type이 object
+                                        ? index === indexOfATag  // 세부항목이 없는 경우 중에서도 데이터 타입이 a tag 인 인덱스
+                                        ? <TD key={index}><a href={td}>{td}</a></TD>
+                                        : <TD key={index}>{td}</TD>
+                                        : Object.values(td).map((subTd:string, index:number) => {  // 세부항목이 있는 경우는 object type이므로 다시 한 번 map
                                             return (
-                                                <td>{subItem}</td>
+                                                <TD key={index}>{subTd}</TD>
                                             )
                                         })
                                     )
@@ -89,5 +86,12 @@ const Table = (props: TableInterface) => {
         </table>
     )
 }
+
+const TH = styled.th`
+    border: 1px solid black;
+`;
+const TD = styled.td`
+    border: 1px solid black;
+`
 
 export default Table
